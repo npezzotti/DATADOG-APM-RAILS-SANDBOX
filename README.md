@@ -27,11 +27,11 @@ Datadog.configure do |c|
   c.use :integration_name, options
 end
 ```
-In the case, we are naming the service rails and enabling App Analytics, but there are more [configuration options](https://docs.datadoghq.com/tracing/setup/ruby/#integration-instrumentation) which can be added.
+In the case, we are naming the service "rails" and enabling App Analytics, but there are more [configuration options](https://docs.datadoghq.com/tracing/setup/ruby/#integration-instrumentation) which can be added.
 
 5. In `<YOUR_APPLICATION_NAME>/Gemfile` add the following gem: `gem 'ddtrace'` and run `bundle install`
 
-6. From the root of your project directory, run `rails server -b 0.0.0.0` to start the server *without* binding it exclusively to the vm (`-b 0.0.0.0`), which 'rails' will do by default. This will allow you to access it in the browser from your host machine.
+6. From the root of your project directory, run `rails server -b 0.0.0.0` to start the server *without* binding it exclusively to the vm (`-b 0.0.0.0`), which rails will do by default. This will allow you to access it in the browser from your host machine.
 
 7. In your browser, navigate to `http://127.0.0.1:5051` to see the homepage on your rails application.
 
