@@ -10,6 +10,7 @@ These are the remaining steps:
 ```
 DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=<YOUR_API_KEY> bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
 ```
+This is all you will need to do to configure the agent, as APM is enabled by default in the agent 6^.
 
 3. In the home directory, run `rails new <YOUR_APPLICATION_NAME>`
 
@@ -19,14 +20,14 @@ Datadog.configure do |c|
   c.use :rails, service_name: 'rails', analytics_enabled: true
 end
 ```
-*or*, from the home directory, run `cp /vagrant/data/datadog-tracer.rb <YOUR_APPLICATION_NAME>/config/initializers/datadog-tracer.rb` to copy it over from the shared directory. This file insturments your application to send traces to the Datadog agent using the Ruby APM tracer. It follows the following format:
+*or*, from the home directory, run `cp /vagrant/data/datadog-tracer.rb <YOUR_APPLICATION_NAME>/config/initializers/datadog-tracer.rb` to copy it over from the shared directory. This file insturments your application to send traces to the Datadog agent using the Ruby APM tracer. It uses the following format:
 ```
 Datadog.configure do |c|
   # Activates and configures an integration
   c.use :integration_name, options
 end
 ```
-In the case, we are naming the service rails and enabling App Analytics, but there are more [options](https://docs.datadoghq.com/tracing/setup/ruby/#integration-instrumentation) which can be added.
+In the case, we are naming the service rails and enabling App Analytics, but there are more [configuration options](https://docs.datadoghq.com/tracing/setup/ruby/#integration-instrumentation) which can be added.
 
 5. In `<YOUR_APPLICATION_NAME>/Gemfile` add the following gem: `gem 'ddtrace'` and run `bundle install`
 
