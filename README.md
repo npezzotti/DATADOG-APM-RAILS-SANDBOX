@@ -19,8 +19,14 @@ Datadog.configure do |c|
   c.use :rails, service_name: 'rails', analytics_enabled: true
 end
 ```
-*or*, from the home directory, run `cp /vagrant/data/datadog-tracer.rb <YOUR_APPLICATION_NAME>/config/initializers/datadog-tracer.rb` to copy it over from the shared directory.
-
+*or*, from the home directory, run `cp /vagrant/data/datadog-tracer.rb <YOUR_APPLICATION_NAME>/config/initializers/datadog-tracer.rb` to copy it over from the shared directory. This file insturments your application to send traces to the Datadog agent using the Ruby APM tracer. It follows the following format:
+```
+Datadog.configure do |c|
+  # Activates and configures an integration
+  c.use :integration_name, options
+end
+```
+In the case, we are naming the service rails and enabling App Analytics, but there are more [options](https://docs.datadoghq.com/tracing/setup/ruby/#integration-instrumentation) which can be added.
 5. In `<YOUR_APPLICATION_NAME>/Gemfile` add the following gem: `gem 'ddtrace'` and run `bundle install`
 
 6. From the root of your project directory, run `rails server -b 0.0.0.0` to start the server *without* binding it exclusively to the vm (`-b 0.0.0.0`), which rails will do by default. This will allow you to access it in the browser from your host machine.
