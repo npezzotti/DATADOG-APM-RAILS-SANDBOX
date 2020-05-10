@@ -20,7 +20,7 @@ Datadog.configure do |c|
   c.use :rails, service_name: 'rails', analytics_enabled: true
 end
 ```
-*or*, from the home directory, run `cp /vagrant/data/datadog-tracer.rb <YOUR_APPLICATION_NAME>/config/initializers/datadog-tracer.rb` to copy it over from the shared directory. This file insturments your application to send traces to the Datadog agent using the Ruby APM tracer. It uses the following format:
+*or*, from the home directory, run `cp /vagrant/data/datadog-tracer.rb <YOUR_APPLICATION_NAME>/config/initializers/datadog-tracer.rb` to copy it over from the shared directory. This file instruments your application to send traces to the Datadog agent using the Ruby APM tracer. It uses the following format:
 ```
 Datadog.configure do |c|
   # Activates and configures an integration
