@@ -1,6 +1,6 @@
 # Datadog APM Quickstart for Rails Application
 
-### This repository is a guide to instrumenting a basic rails application for APM with Datadog on Ubuntu 18.04. The setup script installs everything you need in your environment to build a rails app: nodejs and npm- as a few rails features depend on a javaScript runtime, rbenv- a ruby version-managment tool, ruby, rails, and sqlite3- the default database rails is configured to use. The Vagrantfile forwards port 3000, where your rails server will run on by default, to 5051 on your local machine, for you to access in your browser.
+### This repository is a guide to instrumenting a basic ruby on rails application for APM with Datadog on an Ubuntu 18.04 OS. The setup script installs everything you need in your environment to build a rails app: nodejs and npm- as a few rails features depend on a javaScript runtime, rbenv- a ruby version-managment tool, ruby, rails, and sqlite3- the default database rails is configured to use. The Vagrantfile forwards port 3000, where your rails server will run on by default, to 5051 on your local machine, for you to access in your browser.
 
 These are the remaining steps:
 
